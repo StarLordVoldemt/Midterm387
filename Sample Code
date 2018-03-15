@@ -1,0 +1,367 @@
+//Sample Code
+#include <LiquidCrystal.h>
+//Declaring all Global variables that will be useful later. 
+boolean newData = false;
+const int rs = 2, en = 3, rw =4, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
+int input;
+String output;
+
+//Declares the LCD screen based on our hardware
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+void setup() {
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Starts reading input to the serial monitor and 
+  //prints blank text because it works so much better at clearing the screen than lcd.clear();
+  Serial.begin(9600);
+  lcd.print("       ");
+}
+
+void loop() {
+//Two methods adjusted from Robin2 on the Arduino forums to accept input continuously. 
+ recvOneChar();
+ showNewData();
+}
+
+//Method from Robin2 on arduino forums to see if there's new data. 
+void recvOneChar() {
+ if (Serial.available() > 0) {
+ input = Serial.read();
+ newData = true;
+ }
+}
+
+//Basic method from Robin2 on Arduino forurms to display the Data. The bare bones have been gutted
+//as I have rearranged and changed everything to fit with the LCD screen instead of the Serial
+//monitor. 
+void showNewData() {
+ 
+ if (newData == true) {
+//All conditionals are for setting the output to the corresponding hex value based on the input 
+//ascii value. 
+  
+  //A
+ if(input==65){
+    output="'A' Hex=41      ";
+    }
+    
+ //B
+ else if(input==66){
+    output="'B' Hex=42      ";
+    }
+
+ //C
+ else if(input==67){
+    output="43";
+    }
+    
+ //D
+ else if(input==68){
+    output="44";
+    }
+    
+ //E
+  else if(input==69){
+    output="45";
+    }
+    
+ //F
+ else if(input==70){
+    output="46";
+    }
+    
+ //G
+ else if(input==71){
+    output="47";
+    }
+
+ //H
+ else if(input==72){
+    output="48";
+    }
+
+ //I
+ else if(input==73){
+    output="49";
+    }
+    
+ //J
+ else if(input==74){
+    output="4A";
+    }
+    
+ //K
+  else if(input==75){
+    output="4B";
+    }
+ //L
+ else if(input==76){
+    output="4C";
+    }
+    
+ //M
+ else if(input==77){
+    output="4D";
+    }
+ 
+ //N
+ else if(input==78){
+    output="4E";
+    }
+
+ //O
+ else if(input==79){
+    output="4F";
+    }
+    
+ //P
+ else if(input==80){
+    output="50";
+ }
+ 
+ //Q
+  else if(input==81){
+    output="51";
+    }
+    
+ //R
+ else if(input==82){
+    output="52";
+    }
+    
+ //S
+ else if(input==83){
+    output="53";
+    }
+
+ //T
+ else if(input==84){
+    output="54";
+    }
+
+ //U
+ else if(input==85){
+    output="55";
+    }
+    
+ //V
+ else if(input==86){
+    output="56";
+    }
+    
+ //W
+  else if(input==87){
+    output="57";
+    }
+    
+ //X
+ else if(input==88){
+    output="58";
+    }
+    
+ //Y
+ else if(input==89){
+    output="59";
+    }
+    
+ //Z
+ else if(input==90){
+    output="5A";
+    }
+    
+ //a
+ else if(input==97){
+    output="61";
+    }
+    
+ //b
+ else if(input==98){
+    output="62";
+    }
+
+ //c
+ else if(input==99){
+    output="63";
+    }
+    
+ //d
+ else if(input==100){
+    output="64";
+    }
+    
+ //e
+  else if(input==101){
+    output="65";
+    }
+    
+ //f
+ else if(input==102){
+    output="66";
+    }
+    
+ //g
+ else if(input==103){
+    output="67";
+    }
+
+ //h
+ else if(input==104){
+    output="68";
+    }
+
+ //i
+ else if(input==105){
+    output="69";
+    }
+    
+ //j
+ else if(input==106){
+    output="6A";
+    }
+    
+ //k
+  else if(input==107){
+    output="6B";
+    }
+    
+ //l
+ else if(input==108){
+    output="6C";
+    }
+    
+ //m
+ else if(input==109){
+    output="6D";
+    }
+ //n
+ else if(input==110){
+    output="6E";
+    }
+
+ //o
+ else if(input==111){
+    output="6F";
+    }
+    
+ //p
+ else if(input==112){
+    output="70";
+    }
+    
+ //q
+  else if(input==113){
+    output="71";
+    }
+    
+ //r
+ else if(input==114){
+    output="72";
+    }
+ //s
+ else if(input==115){
+    output="73";
+    }
+
+ //t
+ else if(input==116){
+    output="74";
+    }
+
+ //u
+ else if(input==117){
+    output="75";
+    }
+    
+ //v
+ else if(input==118){
+    output="76";
+    }
+    
+ //w
+  else if(input==119){
+    output="77";
+    }
+    
+ //x
+ else if(input==120){
+    output="78";
+    }
+    
+ //y
+ else if(input==121){
+    output="79";
+    }
+    
+ //z
+ else if(input==122){
+    output="7A";
+    }
+
+ //0
+ else if(input==48){
+    output="30";
+    }
+    
+ //1
+ else if(input==49){
+    output="31";
+    }
+    
+ //2
+ else if(input==50){
+    output="32";
+    }
+    
+ //3
+ else if(input==51){
+    output="33";
+    }
+    
+ //4
+ else if(input==52){
+    output="34";
+    }
+    
+ //5
+ else if(input==53){
+    output="35";
+    }
+    
+ //6
+ else if(input==54){
+    output="36";
+    }
+    
+ //7
+ else if(input==55){
+    output="37";
+    }
+    
+ //8
+ else if(input==56){
+    output="38";
+    }
+    
+ //9
+ else if(input==57){
+    output="39";
+    }
+    
+ //funny thing for Miami
+ else if(input==59){
+  output="Happy GBD! *wink)";
+    }
+
+//The else is so the program doesn't freak out if you enter say an exponential.     
+ else{
+  output=input;
+ }
+ lcd.clear();
+ lcd.println(output);
+ //Serial print is to debug anything that goes wrong. 
+ Serial.println(output);
+ newData = false;
+ }
+ }
+
